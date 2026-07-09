@@ -2,7 +2,7 @@
   "name": "Kind Stranger",
   "url": "https://kindstrangerhq.com",
   "tagline": "Community building for brands, organizations, and public figures.",
-  "description": "Kind Stranger is a community building agency. Services include Reddit strategy, reputation management, and community management and growth.",
+  "description": "Kind Stranger is a community management and marketing studio. Services include Reddit strategy, reputation management, and community management and growth.",
   "email": "hello@kindstrangerhq.com",
   "ogImage": "https://kindstrangerhq.com/assets/img/og-image.png",
   "nav": [
@@ -11,6 +11,6 @@
   "footerNav": [
     { "label": "Home", "url": "/" },
     { "label": "Services", "url": "/#services" },
-    { "label": "Start a project", "url": "mailto:hello@kindstrangerhq.com" }
+    { "label": "Talk to us", "url": "mailto:hello@kindstrangerhq.com" }
   ]
 }
