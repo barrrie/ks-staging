@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }} — Community Marketing Agency{% endif %}</title>
+    <meta name="description" content="{{ description or site.description }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <meta property="og:title" content="{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }} — Community Marketing Agency{% endif %}">
+    <meta property="og:description" content="{{ description or site.description }}">
+    <meta property="og:image" content="{{ site.ogImage }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ site.ogImage }}">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    {% if jsonld %}<script type="application/ld+json">{{ jsonld | safe }}</script>{% endif %}
+    <!-- [BARRIE] Plausible analytics — uncomment once the account exists:
+    <script defer data-domain="kindstrangerhq.com" src="https://plausible.io/js/script.js"></script>
+    -->
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    {% include "header.njk" %}
+
+    <main id="main">
+        {{ content | safe }}
+    </main>
+
+    {% include "footer.njk" %}
+
+    {% include "rules-rail.njk" %}
+
+    <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/rules.js" defer></script>
+</body>
+</html>

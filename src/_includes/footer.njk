@@ -1,0 +1,21 @@
+<footer class="site-footer">
+    <div class="site-footer__inner">
+        <div class="site-footer__brand">
+            <img src="/assets/img/logo-wordmark.png" alt="Kind Stranger" width="160">
+            <p class="site-footer__tagline">{{ site.tagline }}</p>
+            <p class="site-footer__contact"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+            <!-- [BARRIE] Social links: LinkedIn, X, the Kind Stranger Reddit presence if public -->
+        </div>
+        <nav class="site-footer__nav" aria-label="Footer">
+            <ul>
+                {% for item in site.footerNav %}
+                <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+    <div class="site-footer__small">
+        <p>© Kind Stranger. All rights reserved.</p>
+        <p class="site-footer__egg mono" title="rule 7 is a secret">// you scrolled all the way down. that's very rule 1 of you.</p>
+    </div>
+</footer>

@@ -1,0 +1,53 @@
+---
+layout: base.njk
+title: Start a project
+description: "Tell us what you're trying to do in your buyers' communities. You'll hear back from a person — probably Barrie."
+permalink: /start/
+---
+
+<section class="hero">
+    <div class="container">
+        <div class="eyebrow">TALK TO A PERSON</div>
+        <h1>Let's talk.</h1>
+        <p class="hero__subhead">Tell us a little about your company and what you're trying to do in your buyers' communities. You'll hear back from a person — probably Barrie.</p>
+    </div>
+</section>
+
+<section class="section section--alt">
+    <div class="container">
+        <!-- [BARRIE] Formspree endpoint needed. Create a form at formspree.io and replace
+             YOUR_FORM_ID below. Until then the submit will fail gracefully with the
+             email fallback message. -->
+        <form class="form" data-ks-form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form__field">
+                <label for="f-name">Name</label>
+                <input id="f-name" name="name" type="text" required autocomplete="name">
+            </div>
+            <div class="form__field">
+                <label for="f-email">Work email</label>
+                <input id="f-email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="form__field">
+                <label for="f-company">Company</label>
+                <input id="f-company" name="company" type="text" required autocomplete="organization">
+            </div>
+            <div class="form__field">
+                <label for="f-message">What are you trying to do?</label>
+                <textarea id="f-message" name="message" rows="6" required></textarea>
+            </div>
+            <div class="form__field">
+                <label for="f-source">How'd you find us? <span class="optional">(optional)</span></label>
+                <input id="f-source" name="source" type="text">
+            </div>
+            <!-- honeypot -->
+            <div class="form__gotcha" aria-hidden="true">
+                <label for="f-gotcha">Leave this empty</label>
+                <input id="f-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn btn--primary" type="submit" data-cta="primary">Send</button>
+        </form>
+        <div class="form__confirm" role="status" aria-live="polite"></div>
+
+        <p class="mono mt-3" style="font-size:13px;color:var(--text-tertiary)">Forms not your thing? <a href="mailto:hello@kindstrangerhq.com">hello@kindstrangerhq.com</a> works too. No fake scarcity, no "book a demo" theater. Just a real invitation.</p>
+    </div>
+</section>
