@@ -652,6 +652,7 @@ h3 {
 .cta-band h2 {
     color: var(--bg);
     margin: 0 auto var(--spacing-2);
+    max-width: 36ch;
 }
 
 .cta-band .btn--primary {
