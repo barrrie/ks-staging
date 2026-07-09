@@ -5,9 +5,7 @@
   "description": "Kind Stranger provides community management and marketing. Services include Reddit strategy, reputation management, and community management and growth.",
   "email": "hello@kindstrangerhq.com",
   "ogImage": "https://kindstrangerhq.com/assets/img/og-image.png",
-  "nav": [
-    { "label": "Services", "url": "/#services" }
-  ],
+  "nav": [],
   "footerNav": [
     { "label": "Home", "url": "/" },
     { "label": "Services", "url": "/#services" },
