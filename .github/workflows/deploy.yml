@@ -1,5 +1,8 @@
 # Builds the 11ty site and publishes _site to GitHub Pages.
-# Only runs on main — merging the redesign branch is the "publish" action.
+# In the production repo (kind-stranger-website), only runs on main —
+# merging the redesign branch is the "publish" action.
+# In any other repo (the staging repo), it builds with a path prefix,
+# strips the CNAME, and noindexes everything.
 # NOTE: before first deploy, set Pages source to "GitHub Actions" in repo Settings → Pages.
 name: Deploy to GitHub Pages
 
@@ -26,7 +29,15 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
-      - run: npx eleventy
+      - name: Build (production or staging)
+        run: |
+          if [ "${{ github.repository }}" = "barrrie/kind-stranger-website" ]; then
+            npx eleventy
+          else
+            KS_STAGING=1 npx eleventy --pathprefix="/${{ github.event.repository.name }}/"
+            rm -f _site/CNAME
+            printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
+          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

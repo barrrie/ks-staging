@@ -6,6 +6,7 @@
     <title>{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }} — Community Marketing Agency{% endif %}</title>
     <meta name="description" content="{{ description or site.description }}">
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    {% if env.staging %}<meta name="robots" content="noindex, nofollow">{% endif %}
     <meta property="og:title" content="{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }} — Community Marketing Agency{% endif %}">
     <meta property="og:description" content="{{ description or site.description }}">
     <meta property="og:image" content="{{ site.ogImage }}">
