@@ -11,6 +11,6 @@
   "footerNav": [
     { "label": "Home", "url": "/" },
     { "label": "Services", "url": "/#services" },
-    { "label": "Start a project", "url": "/start/" }
+    { "label": "Start a project", "url": "mailto:hello@kindstrangerhq.com" }
   ]
 }
