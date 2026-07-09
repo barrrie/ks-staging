@@ -9,6 +9,6 @@
   "footerNav": [
     { "label": "Home", "url": "/" },
     { "label": "Services", "url": "/#services" },
-    { "label": "Get in touch", "url": "mailto:hello@kindstrangerhq.com" }
+    { "label": "Get in touch", "url": "mailto:hello@kindstrangerhq.com?subject=New%20inquiry" }
   ]
 }
