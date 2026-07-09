@@ -29,7 +29,7 @@
           if (confirmBox) {
             confirmBox.style.display = "block";
             confirmBox.textContent =
-              "Thank you. We will be in touch within one business day.";
+              "Thank you. A real person will get back to you within one business day.";
           }
         })
         .catch(function () {
