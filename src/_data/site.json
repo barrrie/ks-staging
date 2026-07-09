@@ -1,23 +1,18 @@
 {
   "name": "Kind Stranger",
   "url": "https://kindstrangerhq.com",
-  "tagline": "Community marketing, built with you.",
-  "description": "Kind Stranger is a community marketing agency. We help companies, organizations, and public figures earn a real place in the communities where their audiences actually decide — from strategy to boots on the ground.",
+  "tagline": "Community building, done the honest way.",
+  "description": "Kind Stranger is a community building agency. Reddit organic, reputation management, and community management & growth — for brands, organizations, and public figures.",
   "email": "hello@kindstrangerhq.com",
   "ogImage": "https://kindstrangerhq.com/assets/img/og-image.png",
   "nav": [
-    { "label": "What we do", "url": "/what-we-do/" },
-    { "label": "Approach", "url": "/approach/" },
-    { "label": "Work", "url": "/work/" },
-    { "label": "About", "url": "/about/" }
+    { "label": "Services", "url": "/#services" },
+    { "label": "Method", "url": "/#method" }
   ],
   "footerNav": [
     { "label": "Home", "url": "/" },
-    { "label": "What we do", "url": "/what-we-do/" },
-    { "label": "Reddit", "url": "/reddit/" },
-    { "label": "Approach", "url": "/approach/" },
-    { "label": "Work", "url": "/work/" },
-    { "label": "About", "url": "/about/" },
+    { "label": "Services", "url": "/#services" },
+    { "label": "Method", "url": "/#method" },
     { "label": "Start a project", "url": "/start/" }
   ]
 }
