@@ -200,10 +200,6 @@ strong {
     background: var(--surface);
 }
 
-.eyebrow::before {
-    content: "// ";
-    color: var(--accent);
-}
 
 /* ========== HEADINGS ========== */
 h1, h2, h3 {
@@ -317,7 +313,7 @@ h3 {
 }
 
 .card:hover {
-    transform: translate(-3px, -3px) rotate(-0.4deg);
+    transform: translate(-3px, -3px);
     box-shadow: 11px 11px 0 var(--shadow);
 }
 

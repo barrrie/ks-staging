@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kind Stranger — Dark Mode Mockup</title>
+    <style>
+        :root {
+            /* Core palette — inverted */
+            --black: #0a0a0a;
+            --gray: #141414;
+            --gray-dark: #1a1a1a;
+            --border: #2a2a2a;
+            --border-light: #1e1e1e;
+
+            /* Text colors */
+            --text-primary: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --text-tertiary: #888888;
+            --text-muted: #555555;
+
+            /* Accent colors — same punch */
+            --accent: #0055ff;
+            --accent-hover: #3377ff;
+            --orange: #ff6600;
+            --green: #00cc66;
+            --red: #ff3333;
+            --yellow: #ffee00;
+
+            /* Layout */
+            --spacing-1: 16px;
+            --spacing-half: 8px;
+            --spacing-2: 32px;
+            --spacing-3: 48px;
+            --spacing-4: 64px;
+
+            /* Typography - Deinwaller inspired */
+            --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --font-mono: "Courier New", Courier, monospace;
+            --font-size-default: 15px;
+            --font-size-secondary: 13px;
+            --font-size-small: 11px;
+            --font-size-large: 24px;
+            --font-size-header: 18px;
+            --font-size-display: 72px;
+            --line-height: 1.5;
+            --letter-spacing-tight: -0.03em;
+            --letter-spacing-display: -0.04em;
+
+            /* UI */
+            --border-radius: 0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+            touch-action: manipulation;
+        }
+
+        body {
+            height: 100%;
+            font-family: var(--font-body);
+            font-size: var(--font-size-default);
+            line-height: var(--line-height);
+            color: var(--text-primary);
+            background-color: var(--black);
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: var(--letter-spacing-tight);
+        }
+
+        ::selection {
+            background-color: var(--yellow);
+            color: #000;
+        }
+
+        /* ========== PAGE LAYOUT ========== */
+        .page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: var(--spacing-4);
+            position: relative;
+            background: var(--black);
+            border: 4px solid var(--text-primary);
+            margin: var(--spacing-2);
+            box-shadow: 8px 8px 0 var(--yellow);
+        }
+
+        /* ========== NAME / HEADING ========== */
+        .name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--font-size-display);
+            letter-spacing: var(--letter-spacing-display);
+            line-height: 0.95;
+            text-align: center;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
+        /* ========== DECORATIVE RULE ========== */
+        .rule {
+            width: 60px;
+            height: 4px;
+            background: var(--yellow);
+            margin: var(--spacing-2) 0;
+        }
+
+        /* ========== CONTACT ========== */
+        .contact a {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: var(--font-size-default);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #000;
+            text-decoration: none;
+            padding: 14px 28px;
+            border: 3px solid var(--text-primary);
+            border-radius: var(--border-radius);
+            background: linear-gradient(135deg, #ffee00, #ff6600, #ff3333, #ff66cc, #0055ff, #00cc66, #ffee00);
+            background-size: 400% 400%;
+            animation: color-rip 3s ease infinite, bounce 2s ease-in-out infinite;
+            box-shadow: 4px 4px 0 var(--text-primary);
+            display: inline-block;
+            position: relative;
+        }
+
+        .contact a:hover {
+            animation: color-rip 0.8s ease infinite, bounce 0.4s ease-in-out infinite;
+            transform: translate(-3px, -3px) rotate(-2deg);
+            box-shadow: 8px 8px 0 var(--text-primary);
+        }
+
+        .contact a:active {
+            transform: translate(2px, 2px) rotate(1deg);
+            box-shadow: 2px 2px 0 var(--text-primary);
+            animation: color-rip 0.3s ease infinite;
+        }
+
+        @keyframes color-rip {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-6px); }
+            60% { transform: translateY(-3px); }
+        }
+
+        /* ========== SCROLLBAR ========== */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+            border-left: 2px solid var(--text-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--text-primary);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-tertiary);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            :root {
+                --font-size-display: 42px;
+            }
+
+            .page {
+                padding: var(--spacing-2);
+                margin: var(--spacing-1);
+                box-shadow: 4px 4px 0 var(--yellow);
+            }
+
+            .rule {
+                width: 40px;
+                margin: var(--spacing-1) 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="page">
+        <h1 class="name">Kind Stranger</h1>
+        <div class="rule"></div>
+        <div class="contact">
+            <a href="mailto:hello@kindstrangerhq.com">Get in touch</a>
+        </div>
+    </main>
+
+</body>
+</html>

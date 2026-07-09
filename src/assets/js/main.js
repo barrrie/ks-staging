@@ -15,7 +15,6 @@
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (form.dataset.blocked === "true") return; // rules.js said no
       var confirmBox = document.querySelector(".form__confirm");
       var btn = form.querySelector("button[type=submit]");
       if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
@@ -30,7 +29,7 @@
           if (confirmBox) {
             confirmBox.style.display = "block";
             confirmBox.textContent =
-              "✓ Got it. A real human will reply — probably Barrie, usually within a day.";
+              "Thank you. We will be in touch within one business day.";
           }
         })
         .catch(function () {
@@ -38,7 +37,7 @@
           if (confirmBox) {
             confirmBox.style.display = "block";
             confirmBox.textContent =
-              "✕ That didn't send. Email us the old-fashioned way: hello@kindstrangerhq.com";
+              "Your message could not be sent. Please email hello@kindstrangerhq.com.";
           }
         });
     });
