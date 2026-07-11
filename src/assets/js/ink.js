@@ -7,7 +7,8 @@
   if (!span) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  var PAD_X = 10, PAD_Y = 8;
+  var PAD_X = 26, PAD_Y = 20;
+  var FEATHER = 28; // px over which the dust cloud fades out at its edges
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
   var canvas = document.createElement("canvas");
   var ctx = canvas.getContext("2d");
@@ -33,16 +34,27 @@
     mctx.fillRect(0, 0, mask.width, mask.height);
     bgColor = getComputedStyle(document.body).backgroundColor;
 
+    // Density and brightness fall off toward the edges so the cloud reads
+    // as dust, not a rectangle.
     particles = [];
-    var count = Math.floor((W * H) / 16);
-    for (var i = 0; i < count; i++) {
+    var target = Math.floor((W * H) / 16);
+    var attempts = 0;
+    while (particles.length < target && attempts < target * 4) {
+      attempts++;
+      var x = Math.random() * W;
+      var y = Math.random() * H;
+      var edge = Math.min(x, W - x, y, H - y);
+      var feather = Math.max(0, Math.min(1, edge / FEATHER));
+      feather = feather * feather * (3 - 2 * feather);
+      if (Math.random() > feather) continue;
       var roll = Math.random();
       particles.push({
-        x: Math.random() * W,
-        y: Math.random() * H,
+        x: x,
+        y: y,
         r: Math.random() * 1.5 + 0.4,
         p: Math.random() * Math.PI * 2,
         s: Math.random() * 2.2 + 0.6,
+        f: 0.35 + 0.65 * feather,
         c: roll < 0.14 ? "136,6,206" : roll < 0.55 ? "50,50,50" : "130,130,130",
       });
     }
@@ -58,7 +70,7 @@
     ctx.fillRect(0, 0, W, H);
     for (var i = 0; i < particles.length; i++) {
       var q = particles[i];
-      var a = 0.3 + 0.7 * Math.abs(Math.sin(q.p + t * q.s));
+      var a = (0.3 + 0.7 * Math.abs(Math.sin(q.p + t * q.s))) * q.f;
       ctx.fillStyle = "rgba(" + q.c + "," + a.toFixed(2) + ")";
       ctx.beginPath();
       ctx.arc(q.x, q.y, q.r, 0, 6.283);
@@ -103,9 +115,8 @@
   canvas.addEventListener("pointermove", rub);
   canvas.addEventListener("pointerdown", rub);
 
-  // Nobody should leave without the headline: dissolve on its own eventually,
-  // and immediately for keyboard-only visitors.
-  setTimeout(dissolve, 14000);
+  // The dust is an entrance, not a gate: shimmer briefly, then dissolve.
+  setTimeout(dissolve, 2000);
   window.addEventListener("keydown", function onKey() {
     dissolve();
     window.removeEventListener("keydown", onKey);
