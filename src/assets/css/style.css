@@ -499,6 +499,20 @@ h3 {
     margin: 4px 0;
 }
 
+/* ========== INVISIBLE INK ========== */
+.ink {
+    position: relative;
+    display: inline-block;
+}
+
+.ink canvas {
+    position: absolute;
+    left: -10px;
+    top: -8px;
+    touch-action: none;
+    cursor: pointer;
+}
+
 /* ========== HERO ========== */
 .hero {
     padding: var(--spacing-6) 0;
